@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 const Read = () => {
 
@@ -11,6 +12,13 @@ const Read = () => {
                 //console.log(res.data)
                 setData(res.data);
             })
+    }
+
+    const handleDelete = (id) => {
+        axios.delete(`https://6481b70929fa1c5c5031ecf2.mockapi.io/crud-practise/${id}`
+        ).then(() => {
+            getData()
+        })
     }
 
     useEffect(() => {
@@ -38,22 +46,25 @@ const Read = () => {
 
                         return (
                             <>
-                                <tbody>
-                                    <tr key={eachData.id}>
+                                <tbody key={eachData.id}>
+                                    <tr>
                                         <th scope="row">{eachData.id}</th>
                                         <td>{eachData.name}</td>
                                         <td>{eachData.email}</td>
                                         <td>
-                                            <button className='btn btn-success'>Edit</button>
+                                            <Link to="/update">
+                                                <button className='btn btn-success'>Edit</button>
+                                            </Link>
                                         </td>
                                         <td>
-                                            <button className='btn btn-danger'>Delete</button>
+                                            <button className='btn btn-danger' onClick={() => { handleDelete(eachData.id) }}>Delete</button>
                                         </td>
 
                                     </tr>
                                 </tbody>
                             </>
-                        )})
+                        )
+                    })
                 }
             </table>
 
