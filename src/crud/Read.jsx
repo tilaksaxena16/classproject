@@ -8,7 +8,7 @@ const Read = () => {
     const getData = () => {
         axios.get("https://6481b70929fa1c5c5031ecf2.mockapi.io/crud-practise")
             .then((res) => {
-                console.log(res.data)
+                //console.log(res.data)
                 setData(res.data);
             })
     }
@@ -39,7 +39,7 @@ const Read = () => {
                         return (
                             <>
                                 <tbody>
-                                    <tr>
+                                    <tr key={eachData.id}>
                                         <th scope="row">{eachData.id}</th>
                                         <td>{eachData.name}</td>
                                         <td>{eachData.email}</td>
