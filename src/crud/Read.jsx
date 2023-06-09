@@ -21,6 +21,13 @@ const Read = () => {
         })
     }
 
+    const setToLocalStorage = (id,name,email) =>{
+        localStorage.setItem("id", id);
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+
+    }
+
     useEffect(() => {
         getData();
 
@@ -53,7 +60,7 @@ const Read = () => {
                                         <td>{eachData.email}</td>
                                         <td>
                                             <Link to="/update">
-                                                <button className='btn btn-success'>Edit</button>
+                                                <button className='btn btn-success' onClick={() =>{setToLocalStorage(eachData.id,eachData.name,eachData.email)}}>Edit</button>
                                             </Link>
                                         </td>
                                         <td>
