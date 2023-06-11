@@ -54,8 +54,8 @@ const Read = () => {
                         return (
                             <>
                                 <tbody key={eachData.id}>
-                                    <tr>
-                                        <th scope="row">{eachData.id}</th>
+                                    <tr key={eachData.id}>
+                                        <th scope="row" key={eachData.id}>{eachData.id}</th>
                                         <td>{eachData.name}</td>
                                         <td>{eachData.email}</td>
                                         <td>
@@ -74,7 +74,6 @@ const Read = () => {
                     })
                 }
             </table>
-
         </>
     )
 }

@@ -33,13 +33,13 @@ const Update = () => {
             <h2>Update</h2>
             <form>
                 <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Name</label>
+                    <label className="form-label">Name</label>
                     <input type="text" className="form-control" value={name}
                         onChange={(e) => { setName(e.target.value) }}
                     />
                 </div>
                 <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">Email address</label>
+                    <label className="form-label">Email address</label>
                     <input type="email" className="form-control" aria-describedby="emailHelp" value={email}
                         onChange={(e) => { setEmail(e.target.value) }}
                     />
