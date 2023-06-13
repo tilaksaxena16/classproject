@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 
 
 const Databinding = () => {
@@ -20,6 +20,36 @@ const Databinding = () => {
         { Category: "Electronics", Products: ["TV", "Mobile"] },
         { Category: "Footwear", Products: ["Boots", "Casuals"] }
     ];
+
+    const [userName, setUserName] = useState('John');
+
+    function NameChange(e) {
+        setUserName(e.target.value);
+    }
+
+    const [productss, setProduct] = useState({ Name: '', Price: 0, Stock: false });
+
+    function handleNameChange(e) {
+        setProduct({
+            Name: e.target.value,
+            Price: productss.Price,
+            Stock: productss.Stock
+        })
+    }
+    function handlePriceChange(e) {
+        setProduct({
+            Name: productss.Name,
+            Price: e.target.value,
+            Stock: productss.Stock
+        })
+    }
+    function handleStockChange(e) {
+        setProduct({
+            Name: productss.Name,
+            Price: productss.Price,
+            Stock: e.target.checked
+        })
+    }
 
     return (
         <>
@@ -119,6 +149,38 @@ const Databinding = () => {
                         }
                     </select>
                 </div>
+                <div className="container-fluid">
+                    <h2>Two Way Binding</h2>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" onChange={NameChange} value={userName} /></dd>
+                    </dl>
+                    <p>Hello ! {userName}</p>
+                </div>
+
+                <div className="container-fluid">
+                    <h2>Register Product</h2>
+                    <dl>
+                        <dt>Name</dt>
+                        <dd><input type="text" onChange={handleNameChange} value={productss.Name} /></dd>
+                        <dt>Price</dt>
+                        <dd><input type="text" onChange={handlePriceChange} value={productss.Price} /></dd>
+                        <dt>Stock</dt>
+                        <dd>
+                            <input type="checkbox" onChange={handleStockChange} checked={productss.Stock} /> {(productss.Stock == true) ? "Available" : "Out of Stock"}
+                        </dd>
+                    </dl>
+                    <h3>Product Details</h3>
+                    <dl>
+                        <dt>Name</dt>
+                        <dd>{productss.Name}</dd>
+                        <dt>Price</dt>
+                        <dd>{productss.Price}</dd>
+                        <dt>Stock</dt>
+                        <dd>{(productss.Stock == true) ? "Available" : "Out of Stock"}</dd>
+                    </dl>
+                </div>
+
             </div>
         </>
     )
