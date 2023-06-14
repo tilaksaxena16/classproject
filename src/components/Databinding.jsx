@@ -1,9 +1,50 @@
 import React, { useState } from "react";
+import "./Databinding.css";
 
 
 const Databinding = () => {
 
     //useState is only used by using getter value
+
+    const [themes, setThemes] = useState('light-theme');
+
+    function handleThemeChanges(e) {
+        if (e.target.checked) {
+            setThemes('dark-theme');
+        } else {
+            setThemes('light-theme');
+        }
+    }
+
+    const [theme, setTheme] = useState('');
+
+    function handleThemeChange(e) {
+        if (e.target.checked) {
+            setTheme('bg-dark text-white p-4');
+        } else {
+            setTheme('');
+        }
+    }
+
+
+
+    const [validationStyle, setValidationStyle] = useState({ border: '', boxShadow: '' });
+
+    function handleChange(e) {
+        if (e.target.value == "") {
+            setValidationStyle({
+                border: '2px solid red',
+                boxShadow: '2px 2px 2px red'
+            })
+        } else {
+            setValidationStyle({
+                border: '2px solid green',
+                boxShadow: '2px 2px 2px green'
+            })
+        }
+    }
+
+
 
     const [products] = useState({ Name: "Samsung TV", Price: 45000.44 });
     const [categoriess] = useState(["All", "Electronics", "Fashion"]);
@@ -49,8 +90,8 @@ const Databinding = () => {
             Price: productss.Price,
             Stock: e.target.checked
         })
-    }
 
+    }
     return (
         <>
             <div className="container-fluid">
@@ -179,6 +220,54 @@ const Databinding = () => {
                         <dt>Stock</dt>
                         <dd>{(productss.Stock == true) ? "Available" : "Out of Stock"}</dd>
                     </dl>
+                </div>
+
+                <div className="container-fluid">
+                    <h2>Register User</h2>
+                    <dl>
+                        <dt>User Name</dt>
+                        <dd><input type="text" style={validationStyle} onChange={handleChange} placeholder="Name required" /></dd>
+                    </dl>
+                </div>
+
+                {/* Bootstrap class in two way binding */}
+
+                <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: '500px' }}>
+                    <div>
+                        <form className={theme}>
+                            <dl>
+                                <div className="form-switch">
+                                    <input type="checkbox" onChange={handleThemeChange} className="form-check-input" />  Dark Theme
+                                </div>
+                                <h3>Register User</h3>
+                                <dt>User Name</dt>
+                                <dd><input type="text" className="form-control" /></dd>
+                                <dt>Password</dt>
+                                <dd><input type="password" className="form-control" /></dd>
+                            </dl>
+                            <button className="btn btn-dark w-100">Register</button>
+                        </form>
+                    </div>
+                </div>
+
+                {/* custom class in two way binding */}
+
+                <div className="container-fluid d-flex justify-content-center align-items-center" style={{ height: '500px' }}>
+                    <div>
+                        <form className={themes}>
+                            <dl>
+                                <div className="form-switch">
+                                    <input type="checkbox" onChange={handleThemeChanges} className="form-check-input" />  Dark Theme
+                                </div>
+                                <h3>Register User</h3>
+                                <dt>User Name</dt>
+                                <dd><input type="text" className="form-control" /></dd>
+                                <dt>Password</dt>
+                                <dd><input type="password" className="form-control" /></dd>
+                            </dl>
+                            <button className="btn btn-info w-100">Register</button>
+                        </form>
+                    </div>
                 </div>
 
             </div>

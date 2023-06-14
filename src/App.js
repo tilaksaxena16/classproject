@@ -6,6 +6,7 @@ import { Read } from "./crud/Read";
 import { Login } from "./components/Login";
 import { Databinding } from "./components/Databinding";
 import { Update } from "./crud/Update";
+import { NetflixIndex } from "./Neflix/Netflix-index";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/update" element={<Update />} />
             <Route exact path="/" element={<Create />} />
             <Route exact path="/read" element={<Read />} />
+            <Route exact path="/netflix" element={<NetflixIndex />} />
           </Routes>
         </BrowserRouter>
       </div>

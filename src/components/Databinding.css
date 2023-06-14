@@ -1,0 +1,12 @@
+.dark-theme {
+    background-color: darkcyan;
+    color:white;
+    padding: 20px;
+    border-radius: 30px;
+}
+.light-theme {
+    background-color: lightcyan;
+    color:black;
+    padding: 20px;
+    border-radius: 30px;
+}
