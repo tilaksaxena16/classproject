@@ -10,6 +10,8 @@ import { NetflixIndex } from "./Neflix/Netflix-index";
 import { Nasaapi } from "./Nasa-api/Nasaapi";
 import { Earthapi } from "./Nasa-api/Earthapi";
 import { Planetapi } from "./Nasa-api/Planetapi";
+import { Jsonapi } from "./Json-placeholder/Jsonapi";
+import { Jsontable } from "./Json-placeholder/Jsontable";
 
 const App = () => {
   return (
@@ -26,6 +28,8 @@ const App = () => {
             <Route exact path="/nasa" element={<Nasaapi />} />
             <Route exact path="/earth" element={<Earthapi />} />
             <Route exact path="/planet" element={<Planetapi />} />
+            <Route exact path="/json" element={<Jsonapi />} />
+            <Route exact path="/jsontable" element={<Jsontable />} />
           </Routes>
         </BrowserRouter>
       </div>
