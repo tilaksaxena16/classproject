@@ -66,7 +66,6 @@ const Read = () => {
                                         <td>
                                             <button className='btn btn-danger' onClick={() => { handleDelete(eachData.id) }}>Delete</button>
                                         </td>
-
                                     </tr>
                                 </tbody>
                             </>

@@ -7,6 +7,9 @@ import { Login } from "./components/Login";
 import { Databinding } from "./components/Databinding";
 import { Update } from "./crud/Update";
 import { NetflixIndex } from "./Neflix/Netflix-index";
+import { Nasaapi } from "./Nasa-api/Nasaapi";
+import { Earthapi } from "./Nasa-api/Earthapi";
+import { Planetapi } from "./Nasa-api/Planetapi";
 
 const App = () => {
   return (
@@ -20,6 +23,9 @@ const App = () => {
             <Route exact path="/" element={<Create />} />
             <Route exact path="/read" element={<Read />} />
             <Route exact path="/netflix" element={<NetflixIndex />} />
+            <Route exact path="/nasa" element={<Nasaapi />} />
+            <Route exact path="/earth" element={<Earthapi />} />
+            <Route exact path="/planet" element={<Planetapi />} />
           </Routes>
         </BrowserRouter>
       </div>
